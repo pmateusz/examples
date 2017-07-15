@@ -138,7 +138,7 @@ if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_DEBIAN_REVISON}_${_OS_ARCH}")
     set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
     set(CPACK_DEBIAN_COMPRESSION_TYPE "gzip")
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "git (>= 1:2.1.4), bison (>= 2:3.0.2), flex (>= 2.5.39), python-setuptools (>= 3.3.8), python-dev (>= 2.7.9), autoconf (>= 2.69), libtool (>= 2.4.2), zlib1g-dev (>= 1:1.2.8), texinfo (>= 5.2.0), help2man (>= 1.46.4), gawk (>= 1:4.1.1), g++ (>= 4:4.9), curl (>= 7.38.0), texlive, cmake (>= 3.0.2), subversion (>= 1.8.10)")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "git (>= 1:1.9.1), bison (>= 2:3.0.2), flex (>= 2.5.35), python-setuptools (>= 3.3), python-dev (>= 2.7.0), autoconf (>= 2.69), libtool (>= 2.4.2), zlib1g-dev (>= 1:1.2.8), texinfo (>= 5.2.0), help2man (>= 1.44.0), gawk (>= 1:4.0), g++ (>= 4:4.8.0), curl (>= 7.35.0), texlive, cmake3 (>= 3.5.0), subversion (>= 1.8.0)")
   endif()
 
   include(CPack)
