@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 project(or_tools_package LANGUAGES CXX VERSION 6.0)
 
-include(./Utils.cmake)
+include(/shared/Utils.cmake)
 
 m_get_filepath(OR_TOOLS_DIR ~/dev/or-tools REALPATH)
 m_get_filepath(OR_TOOLS_DEP_INSTALL_DIR ${OR_TOOLS_DIR}/dependencies/install REALPATH)
@@ -131,7 +131,10 @@ if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
     m_get_architecture(_OS_ARCH)
     mark_as_advanced(_OS_ARCH)
 
-    set(CPACK_DEBIAN_REVISON "ubuntu-trusty-a1")
+    m_get_os_name(_OS_NAME)
+    mark_as_advanced(_OS_NAME)
+
+    set(CPACK_DEBIAN_REVISON "${_OS_NAME}")
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_DEBIAN_REVISON}_${_OS_ARCH}")
     set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
     set(CPACK_DEBIAN_COMPRESSION_TYPE "gzip")

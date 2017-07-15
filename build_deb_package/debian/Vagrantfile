@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "ubuntu.server.org"
+  config.vm.box = "debian/contrib-jessie64"
+  config.vm.hostname = "debian.server.org"
   config.vm.provider :virtualbox do |vm|
     vm.memory = 4096
     vm.cpus = 4

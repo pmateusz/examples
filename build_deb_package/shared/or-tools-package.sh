@@ -5,7 +5,7 @@ pushd .
 cd /vagrant \
 && rm -Rf build \
 && mkdir -p build && cd build \
-&& cmake .. \
+&& cmake /shared \
 && make dist
 
 popd
