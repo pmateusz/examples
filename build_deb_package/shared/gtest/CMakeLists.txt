@@ -42,7 +42,7 @@ install(DIRECTORY ${gtest_INSTALL}/include/gtest/ DESTINATION include/gtest
   FILES_MATCHING  PATTERN "*.h"
                   PATTERN "*.pump")
 
-install(DIRECTORY ${gflags_INSTALL}/lib/ DESTINATION lib
+install(DIRECTORY ${gtest_INSTALL}/lib/ DESTINATION lib
   FILES_MATCHING  PATTERN "libgtest*"
                   PATTERN "libgmock*"
                   PATTERN "cmake" EXCLUDE

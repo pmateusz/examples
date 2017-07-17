@@ -18,5 +18,6 @@ pushd .
 download_compile_package glog
 download_compile_package gflags
 download_compile_package gtest
+download_compile_package sparsehash
 
 popd

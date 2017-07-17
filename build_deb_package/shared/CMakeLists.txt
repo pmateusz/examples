@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(or_tools_package LANGUAGES CXX VERSION 6.0)
+project(libortools-dev LANGUAGES CXX VERSION 6.0)
 
 include(/shared/Utils.cmake)
 
@@ -25,29 +25,29 @@ install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
 install(FILES ${OR_TOOLS_DEP_INSTALL_DIR}/bin/protoc DESTINATION bin)
 
 # gflags = 2.2.0
-m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/include/gflags/gflags.h)
-m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/lib/libgflags.a)
-m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/bin/gflags_completions.sh)
+# m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/include/gflags/gflags.h)
+# m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/lib/libgflags.a)
+# m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/bin/gflags_completions.sh)
 
-install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/include/gflags/ DESTINATION include/gflags FILES_MATCHING PATTERN "*.h")
+# install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/include/gflags/ DESTINATION include/gflags FILES_MATCHING PATTERN "*.h")
 
-install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
-  FILES_MATCHING PATTERN "libgflags*"
-                 PATTERN "cmake" EXCLUDE
-                 PATTERN "pkgconfig" EXCLUDE)
+#install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
+#  FILES_MATCHING PATTERN "libgflags*"
+#                 PATTERN "cmake" EXCLUDE
+#                 PATTERN "pkgconfig" EXCLUDE)
 
-install(FILES ${OR_TOOLS_DEP_INSTALL_DIR}/bin/gflags_completions.sh DESTINATION bin)
+#install(FILES ${OR_TOOLS_DEP_INSTALL_DIR}/bin/gflags_completions.sh DESTINATION bin)
 
 # Glog = 0.3.5
-m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/include/glog/logging.h)
-m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/lib/libglog.a)
+#m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/include/glog/logging.h)
+#m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/lib/libglog.a)
 
-install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/include/glog/ DESTINATION include/glog FILES_MATCHING PATTERN "*.h")
+#install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/include/glog/ DESTINATION include/glog FILES_MATCHING PATTERN "*.h")
 
-install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
-  FILES_MATCHING PATTERN "libglog*"
-                 PATTERN "cmake" EXCLUDE
-                 PATTERN "pkgconfig" EXCLUDE)
+#install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
+#  FILES_MATCHING PATTERN "libglog*"
+#                 PATTERN "cmake" EXCLUDE
+#                 PATTERN "pkgconfig" EXCLUDE)
 
 # cbc = 2.9.8
 # CoinUtils = 2.10.13
@@ -115,7 +115,7 @@ if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
   set(CPACK_SET_DESTDIR "on")
   set(CPACK_PACKAGING_INSTALL_PREFIX "/tmp")
 
-  set(CPACK_PACKAGE_NAME "or-tools")
+  set(CPACK_PACKAGE_NAME "${PROJECT_NAME}")
   set(CPACK_PACKAGE_VENDOR "google")
   set(CPACK_PACKAGE_CONTACT "mateusz.polnik at strath.ac.uk")
   set(CPACK_PACKAGE_DESCRIPTION "Google Optimization Tools")
