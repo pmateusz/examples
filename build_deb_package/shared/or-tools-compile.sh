@@ -2,13 +2,20 @@
 
 pushd .
 
-mkdir -p ~/dev && cd ~/dev \
-&& wget https://github.com/google/or-tools/archive/master.zip --quiet -Omaster.zip \
-&& unzip master.zip -d . \
-&& rm master.zip \
-&& mv or-tools-master or-tools && cd or-tools
+mkdir -p ~/dev \
+&& pushd dev
 
-make third_party \
+if [ ! -d or-tools ]; then
+    wget https://github.com/google/or-tools/archive/v6.2.zip --quiet -Omaster.zip \
+    && unzip master.zip -d . \
+    && rm master.zip \
+    && mv or-tools-6.2 or-tools
+fi
+
+pushd or-tools \
+&& make third_party \
 && make cc
 
+popd
+popd
 popd

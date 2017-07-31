@@ -7,8 +7,8 @@ Vagrant.configure("2") do |config|
   end
   config.vm.synced_folder "../shared", "/shared", :mount_options => ["ro"]
   
-  # config.vm.provision :shell, name: "install-prerequisites", path: "../shared/third-party-install.sh"
-  # config.vm.provision :shell, name: "install-cmake", path: "../shared/cmake-install.sh"
+  config.vm.provision :shell, name: "install-prerequisites", path: "../shared/third-party-install.sh"
+  config.vm.provision :shell, name: "install-cmake", path: "../shared/cmake-install.sh"
   config.vm.provision :shell, privileged: false, name: "compile-or-tools", path: "../shared/or-tools-compile.sh"
   config.vm.provision :shell, privileged: false, name: "package-or-tools", path: "../shared/or-tools-package.sh"
 end

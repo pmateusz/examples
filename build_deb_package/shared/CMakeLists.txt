@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(libortools-dev LANGUAGES CXX VERSION 6.0)
+project(libortools-dev LANGUAGES CXX VERSION 6.2)
 
 include(/shared/Utils.cmake)
 
@@ -22,7 +22,7 @@ install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
                  PATTERN "cmake" EXCLUDE
                  PATTERN "pkgconfig" EXCLUDE)
 
-install(FILES ${OR_TOOLS_DEP_INSTALL_DIR}/bin/protoc DESTINATION bin)
+install(PROGRAMS ${OR_TOOLS_DEP_INSTALL_DIR}/bin/protoc DESTINATION bin)
 
 # gflags = 2.2.0
 # m_check_filepath(${OR_TOOLS_DEP_INSTALL_DIR}/include/gflags/gflags.h)
@@ -89,7 +89,7 @@ install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/lib/ DESTINATION lib
                  PATTERN "cmake" EXCLUDE
                  PATTERN "pkgconfig" EXCLUDE)
  
-install(FILES ${OR_TOOLS_DEP_INSTALL_DIR}/bin/cbc ${OR_TOOLS_DEP_INSTALL_DIR}/bin/clp DESTINATION bin)
+install(PROGRAMS ${OR_TOOLS_DEP_INSTALL_DIR}/bin/cbc ${OR_TOOLS_DEP_INSTALL_DIR}/bin/clp DESTINATION bin)
 
 install(DIRECTORY ${OR_TOOLS_DEP_INSTALL_DIR}/share/coin/ DESTINATION share/coin)
 
@@ -138,7 +138,8 @@ if(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_DEBIAN_REVISON}_${_OS_ARCH}")
     set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
     set(CPACK_DEBIAN_COMPRESSION_TYPE "gzip")
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "git (>= 1:1.9.1), bison (>= 2:3.0.2), flex (>= 2.5.35), python-setuptools (>= 3.3), python-dev (>= 2.7.0), autoconf (>= 2.69), libtool (>= 2.4.2), zlib1g-dev (>= 1:1.2.8), texinfo (>= 5.2.0), help2man (>= 1.44.0), gawk (>= 1:4.0), g++ (>= 4:4.8.0), curl (>= 7.35.0), texlive, cmake3 (>= 3.5.0), subversion (>= 1.8.0)")
+    # Ubuntu Trusty requires cmake3, Debian Jessie cmake. Removed the dependency to have a simple file
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "git (>= 1:1.9.1), bison (>= 2:3.0.2), flex (>= 2.5.35), python-setuptools (>= 3.3), python-dev (>= 2.7.0), autoconf (>= 2.69), libtool (>= 2.4.2), zlib1g-dev (>= 1:1.2.8), texinfo (>= 5.2.0), help2man (>= 1.44.0), gawk (>= 1:4.0), g++ (>= 4:4.8.0), curl (>= 7.35.0), texlive, subversion (>= 1.8.0)")
   endif()
 
   include(CPack)
