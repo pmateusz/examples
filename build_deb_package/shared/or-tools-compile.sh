@@ -13,8 +13,9 @@ if [ ! -d or-tools ]; then
 fi
 
 pushd or-tools \
+&& export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/gurobi751/linux64/lib \
 && make third_party \
-&& make cc
+&& make cc UNIX_GLPK_DIR=/usr/local UNIX_GUROBI_DIR=/opt/gurobi751 GUROBI_PLATFORM=linux64
 
 popd
 popd
