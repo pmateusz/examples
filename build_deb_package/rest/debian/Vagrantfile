@@ -4,7 +4,7 @@ sudo apt-get install --assume-yes cmake g++ autoconf build-essential libtool git
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "debian/contrib-jessie64"
+  config.vm.box = "debian/contrib-stretch64"
   config.vm.hostname = "debian.server.org"
   config.vm.provider :virtualbox do |vm|
     vm.memory = 4096
