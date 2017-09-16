@@ -29,7 +29,7 @@ if [ ! -d gurobi751 ]; then
     && tar -xzf gurobi7.5.1.tar.gz \
     && rm gurobi7.5.1.tar.gz \
     && sudo /bin/cp -rf gurobi751 /opt \
-    && cd /opt/gurobi751/lib \
+    && cd /opt/gurobi751/linux64/lib \
     && sudo ln -s libgurobi75.so libgurobi.so
     cd --
 fi 
