@@ -9,10 +9,8 @@ libtool zlib1g-dev texinfo help2man gawk g++ curl texlive cmake subversion
 # packaging prerequisites
 apt-get install --assume-yes python3 unzip gfortran libgflags-dev libcurl4-openssl-dev
 
-./glpk/glpk-install.sh
-./gurobi/gurobi-install.sh
+. "/shared/glpk/glpk-install.sh"
+. "/shared/gurobi/gurobi-install.sh"
 # ./cmake/cmake-install.sh
 
-sudo ldconfig --verbose
-
-popd
+sudo ldconfig
