@@ -1,0 +1,16 @@
+if (SOPLEX_ROOT_DIR)
+    set(_SOPLEX_INCLUDE_LOCATIONS "${SOPLEX_ROOT_DIR}")
+    set(_SOPLEX_LIB_LOCATIONS "${SOPLEX_ROOT_DIR}")
+else ()
+    set(SOPLEX_ROOT_DIR "" CACHE PATH "Folder contains Soplex library")
+    set(_SOPLEX_INCLUDE_LOCATIONS "")
+    set(_SOPLEX_LIB_LOCATIONS "")
+endif ()
+
+find_path(SOPLEX_INCLUDE_DIR soplex.h HINTS ${_SOPLEX_INCLUDE_LOCATIONS} PATH_SUFFIXES src)
+find_library(SOPLEX_LIBRARY soplex HINTS ${_SOPLEX_LIB_LOCATIONS} PATH_SUFFIXES lib)
+
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(SOPLEX DEFAULT_MSG SOPLEX_LIBRARY SOPLEX_INCLUDE_DIR)
+
+mark_as_advanced(_SOPLEX_INCLUDE_LOCATIONS _SOPLEX_LIB_LOCATIONS)
