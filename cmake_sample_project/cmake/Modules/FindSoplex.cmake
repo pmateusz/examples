@@ -1,5 +1,5 @@
 if (SOPLEX_ROOT_DIR)
-    set(_SOPLEX_INCLUDE_LOCATIONS "${SOPLEX_ROOT_DIR}")
+    set(_SOPLEX_INCLUDE_LOCATIONS " ${SOPLEX_ROOT_DIR}")
     set(_SOPLEX_LIB_LOCATIONS "${SOPLEX_ROOT_DIR}")
 else ()
     set(SOPLEX_ROOT_DIR "" CACHE PATH "Folder contains Soplex library")

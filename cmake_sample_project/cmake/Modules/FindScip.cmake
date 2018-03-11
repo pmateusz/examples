@@ -7,40 +7,13 @@ else ()
     set(_SCIP_LIB_LOCATIONS "")
 endif ()
 
-if (NOT ZLIB_FOUND)
-    find_package(ZLIB REQUIRED)
-endif ()
-
-if (NOT READLINE_FOUND)
-    find_package(Readline REQUIRED)
-endif ()
-
-if (NOT SOPLEX_FOUND)
-    find_package(Soplex REQUIRED)
-endif ()
-
-if (NOT GMP_FOUND)
-    find_package(Gmp REQUIRED)
-endif ()
-
 find_path(SCIP_INCLUDE_DIR scip/scip.h HINTS ${_SCIP_INCLUDE_LOCATIONS} PATH_SUFFIXES src)
+find_library(SCIP_LIBRARY scip HINTS ${_SCIP_LIB_LOCATIONS} PATH_SUFFIXES lib lib/static)
 
-set(SCIP_LIBRARY "")
-macro(FindScipComponent name)
-    find_library(_${name}_LIBRARY ${name} HINTS ${_SCIP_LIB_LOCATIONS} PATH_SUFFIXES lib lib/static)
-    if (NOT _${name}_LIBRARY)
-        message(FATAL_ERROR "Not found lib${name}.a")
-    endif ()
-    mark_as_advanced(_${name}_LIBRARY)
-
-    list(APPEND SCIP_LIBRARY ${_${name}_LIBRARY})
-endmacro()
-
-FindScipComponent(scip)
-FindScipComponent(objscip)
-FindScipComponent(tpinone)
-FindScipComponent(lpispx2)
-FindScipComponent(nlpi.cppad)
+find_package(ZLIB REQUIRED)
+find_package(Readline REQUIRED)
+find_package(Soplex REQUIRED)
+find_package(Gmp REQUIRED)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(SCIP DEFAULT_MSG SCIP_LIBRARY SCIP_INCLUDE_DIR)
