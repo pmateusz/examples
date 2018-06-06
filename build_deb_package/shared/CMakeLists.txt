@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(libortools-dev LANGUAGES CXX VERSION 6.5)
+project(libortools-dev LANGUAGES CXX VERSION 6.7.1)
 
 include(/shared/Utils.cmake)
 

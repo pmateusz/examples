@@ -6,10 +6,10 @@ mkdir -p ~/dev
 pushd dev
 
 if [ ! -d or-tools ]; then
-    wget https://github.com/google/or-tools/archive/v6.5.zip --quiet -Omaster.zip \
+    wget https://github.com/google/or-tools/archive/v6.7.1.zip --quiet -Omaster.zip \
     && unzip master.zip -d . \
     && rm master.zip \
-    && mv or-tools-6.5 or-tools
+    && mv or-tools-6.7.1 or-tools
 fi
 
 pushd or-tools \
